@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css"
+        integrity="sha512-72McA95q/YhjwmWFMGe8RI3aZIMCTJWPBbV8iQY3jy1z9+bi6+jHnERuNrDPo/WGYEzzNs4WdHNyyEr/yXJ9pA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Password</title>
+</head>
+<style>
+    body {
+        background-color: white;
+    }
+    
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .pass {
+        padding: 10px;
+    }
+
+    /* Adjust other styles as needed for smaller screens */
+}
+    .pass {
+        background-color: aliceblue;
+        height: 500px;
+        width: 800px;
+        margin-top: 150px;
+        margin-left: 330px;
+    }
+
+    .pass h1 {
+        color: rgb(237, 25, 96);
+        font-size: 40px;
+        text-align: center;
+        padding-top: 10px;
+
+    }
+
+    .pass1 {
+        border: 5px dotted rgb(217, 21, 54);
+        height: 500px;
+        width: 800px;
+    }
+
+    input {
+        border: 2px solid rgb(244, 10, 49);
+        padding: 20px;
+        text-align: center;
+        width: 700px;
+        margin-left: 30px;
+        margin-top: 30px;
+    }
+
+    button {
+        margin-top: 40px;
+        margin-left: 310px;
+        margin-top: 10px;
+        width: 100px;
+
+    }
+   h3{
+    color: black;
+    margin-top: 30px;
+    margin-left: 260px;
+   }
+   P{
+    color: rgb(234, 7, 45);
+    margin-left: 260px;
+    font-size: 20px;
+   }
+</style>
+<body>
+  
+    <div class="container pass">
+        <div class="row pass1">
+            <h1>PASSWORD VALIDATION</h1>
+            <label for=""></label>
+            <input type="password" name="password" value=""autocomplete="current-password"  id="id_password" value="" >
+            <i class="fa fa-eye" aria-hidden="true"  id="togglePassword" style="margin-left: -30px; cursor: pointer;" ></i>
+            <button onclick="requiredValue()">Submit</button>
+          <h3>Password must contains</h3>
+          <p>At least 10 character long</p>
+          <p>At least 1 upperCase letter</p>
+          <p>At least 1 lowerCase letter</p>
+          <p>At least 1 number</p>
+          <p>At least 1 special symbol</p>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    //password
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#id_password');
+    togglePassword.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // toggle the eye slash icon
+        this.classList.toggle('fa-eye-slash');
+    });
+   //conditions
+function requiredValue(){
+let  passwordinput=document.getElementById("id_password");
+let userid_password= passwordinput.value;
+
+if(userid_password === ""){
+    alert("PASSWORD MUST REQUIRED")
+}
+
+else if (userid_password.search(/[0-9]/)== -1){
+    alert("atleast one number")
+}
+else if (userid_password.search(/[a-z]/)== -1){
+    alert("atleast one lowercase")
+}
+else if (userid_password.search(/[A-Z]/)== -1){
+    alert("atleast one uppercase")
+}
+else if (userid_password.search(/(['!','@','#','$','%','^','&','*','(',')'])/) ==-1){
+    alert("atleast one special character")
+}
+else if(userid_password.length<10){
+    alert("ATLEAST 10 CHARACTER LONG")
+}
+
+else{
+    alert("SUCCESSFULLY COMPLETED")
+}
+}
+</script>
+
+
+</html>
